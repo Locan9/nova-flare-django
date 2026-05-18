@@ -21,6 +21,7 @@ webdjang/
     ├── db.sqlite3               # Core local database
     ├── pyproject.toml           # Environment and dependency locks
     └── manage.py                # Django execution entrypoint
+ ---
 Markdown
 # 🚀 NovaFlare (Django Edition)
 
@@ -45,6 +46,7 @@ webdjang/
     ├── db.sqlite3               # Core local database
     ├── pyproject.toml           # Environment and dependency locks
     └── manage.py                # Django execution entrypoint
+    ---
 ✨ Features
 Smart Parsing Engine: Type your closet items using a clean colon-notation syntax; the backend converts it instantly into interactive data profiles.
 
@@ -55,6 +57,7 @@ Database-Driven Rules: Outfits, clothing variations, and color matrices are stor
 Persistent User Profiles: Built with standard Django encryption authentication. When registered users return, NovaFlare pulls their last-typed closet setup straight out of their personal UserProfile data entry automatically.
 
 Galaxy Glassmorphic Design: Retains its aesthetic neon glow, nebula backdrops, and glassmorphic navigation layouts integrated directly into server-rendered Django templates.
+---
 
 🛠️ Technologies Used
 Backend Framework: Django 6.0+ (Python)
@@ -64,6 +67,7 @@ Package Management: uv by Astral (ultra-fast dependency workspace provider)
 Database: SQLite3
 
 Frontend Foundations: HTML5, CSS3, Tailwind CSS CDN
+---
 
 ▶️ How to Setup and Run
 1. Prerequisites
@@ -97,6 +101,7 @@ Ignite the live development server:
 Bash
 uv run python manage.py runserver
 Open your browser and navigate to http://127.0.0.1:8000/.
+---
 
 📌 Engine Constraints & Rules
 Valid Base Garments: tshirt, hoodie, casual shirt, light jacket, jeans, sweatpants, shorts, pants.
