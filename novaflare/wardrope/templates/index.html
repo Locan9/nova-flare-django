@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NovaFlare</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+
+    <nav class="navbar">
+      <div class="nav-left">
+    <a href="{% url 'saved' %}" class="scroll-btn flex items-center justify-center text-center" aria-label="Saved submissions">
+      👤
+    </a>
+  </div>
+
+  <div class="nav-center">
+    <img src="{% static 'images/nova.png' %}" class="logo" alt="Logo">
+  </div>
+
+  <div class="nav-right">
+    <a href="https://github.com/Locan9" target="_blank" class="contact-btn">Contact</a>
+  </div>
+    </nav>
+
+    <section class="section section1" id="section1">
+      <div class="content">
+        <img src="{% static 'images/novatext.png' %}" class="hero-img" alt="Hero Image">
+      </div>
+    </section>
+
+    <section class="section section2" id="section2">
+      <form method="POST" action="{% url 'index' %}#section2" class="tool-box">
+        {% csrf_token %}
+        <div class="tool-left">
+          <div class="left-content">
+            <h2>Tell NovaFlare what you have</h2>
+            <p>Enter clothes and colors.</p>
+
+            <textarea id="userInput" name="user_input" placeholder="Example:hoodie: black, white jeans: light blue, dark blue Write one clothing item per line in this format: item: color1, color2">{{ user_input }}</textarea>
+
+            <div class="rules-box">
+              <p><strong>Clothes:</strong></p>
+              <p class="rules-text">tshirt, hoodie, casual shirt, light jacket, jeans, sweatpants, shorts, pants</p>
+              <p><strong>Colors:</strong></p>
+              <p class="rules-text">green, blue, yellow, red, orange, purple, brown, black, white, silver</p>
+            </div>
+          </div>
+
+          <button type="submit" class="generate-btn">Recommend</button>
+        </div>
+
+        <div class="tool-right">
+          <h2>Your Best Match</h2>
+          <div class="result-display" id="resultBox">
+            {% if recommendations %}
+              {% for recommendation in recommendations %}
+                <p class="match-text">{{ recommendation }}</p>
+              {% endfor %}
+            {% else %}
+              <p>No result yet</p>
+            {% endif %}
+          </div>
+        </div>
+
+      </form>
+    </section>
+  </body>
+</html>
