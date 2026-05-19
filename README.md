@@ -1,4 +1,3 @@
-````md
 # 🚀 NovaFlare Django
 
 NovaFlare Django is a web-based wardrobe management and outfit recommendation platform that suggests clothing combinations based on your wardrobe, color compatibility, and weather conditions.
@@ -31,7 +30,7 @@ novaflare/
 │   └── templates/
 │       ├── index.html
 │       └── saved.html
-````
+```
 
 ---
 
@@ -114,6 +113,3 @@ python manage.py runserver
 GitHub: https://github.com/Locan9
 
 ---
-
-```
-```
