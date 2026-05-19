@@ -6,21 +6,30 @@ Originally built as a static frontend app, this version has been fully migrated 
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
 ```text
-webdjang/
-└── novaflare/
-    ├── config/                  # Django project configuration settings & routing
-    ├── wardrope/                # Main application folder
-    │   ├── management/          # Custom admin terminal automation scripts
-    │   ├── templates/           # Clean, modular server-rendered HTML views
-    │   ├── matching_engine.py   # Object-Oriented matching engine class
-    │   ├── models.py            # SQLite database table layouts
-    │   └── views.py             # Authentication and form submission handlers
-    ├── db.sqlite3               # Core local database
-    ├── pyproject.toml           # Environment and dependency locks
-    └── manage.py                # Django execution entrypoint
+novaflare/
+├── .gitignore
+├── .python-version
+├── db.sqlite3
+├── manage.py
+├── pyproject.toml
+├── uv.lock
+├── config/
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+└── wardrope/
+    ├── admin.py
+    ├── apps.py
+    ├── models.py
+    ├── templates/
+    │   ├── index.html
+    │   └── saved.html
+    └── views.py
  ---
 Markdown
 # 🚀 NovaFlare (Django Edition)
