@@ -1,34 +1,51 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Saved Recommendations - NovaFlare</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Saved Outfits - NovaFlare</title>
   <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body class="bg-gray-100">
-  <nav class="navbar p-4">
-    <a href="{% url 'index' %}" class="mr-4">Home</a>
-    <span>Saved Recommendations</span>
+<body class="bg-gray-950 text-gray-100 min-h-screen">
+  
+  <nav class="max-w-4xl mx-auto p-6 flex items-center justify-between border-b border-gray-900">
+    <a href="{% url 'index' %}" class="text-sm font-medium text-gray-400 hover:text-white transition">
+      ← Back Home
+    </a>
+    <span class="text-sm font-semibold tracking-wide text-gray-200">NovaFlare Archive</span>
   </nav>
 
-  <main class="p-6">
+  <main class="max-w-2xl mx-auto p-6">
     {% if submissions %}
-      <div class="grid gap-4">
+      <div class="space-y-8">
         {% for sub in submissions %}
-          <div class="p-4 bg-white rounded shadow">
-            <div class="text-sm text-gray-500">{{ sub.created_at }}</div>
-            <div class="result-display mt-2" style="color: #000;">
-              {% autoescape off %}{{ sub.results }}{% endautoescape %}
+          <div class="border-l-2 border-blue-500 pl-4 py-1">
+            
+            <span class="text-xs text-gray-500 block mb-2">
+              {{ sub.created_at|date:"M d, Y · H:i" }}
+            </span>
+            
+            <p class="text-sm text-gray-400 italic mb-3">
+              "{{ sub.raw_input|linebreaksbr }}"
+            </p>
+
+            <div class="space-y-1">
+              {% for match in sub.list_of_results %}
+                <p class="text-sm text-gray-200 font-medium">{{ match }}</p>
+              {% endfor %}
             </div>
+
           </div>
         {% endfor %}
       </div>
     {% else %}
-      <p>No saved recommendations yet.</p>
+      <div class="text-center py-16 text-gray-500">
+        <p>No saved history found.</p>
+      </div>
     {% endif %}
   </main>
+
 </body>
 </html>

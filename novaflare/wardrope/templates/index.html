@@ -12,18 +12,18 @@
 
     <nav class="navbar">
       <div class="nav-left">
-    <a href="{% url 'saved' %}" class="scroll-btn flex items-center justify-center text-center" aria-label="Saved submissions">
-      👤
-    </a>
-  </div>
+        <a href="{% url 'saved' %}" class="scroll-btn flex items-center justify-center text-center" aria-label="View Saved History">
+          🔮
+        </a>
+      </div>
 
-  <div class="nav-center">
-    <img src="{% static 'images/nova.png' %}" class="logo" alt="Logo">
-  </div>
+      <div class="nav-center">
+        <img src="{% static 'images/nova.png' %}" class="logo" alt="Logo">
+      </div>
 
-  <div class="nav-right">
-    <a href="https://github.com/Locan9" target="_blank" class="contact-btn">Contact</a>
-  </div>
+      <div class="nav-right">
+        <a href="https://github.com/Locan9" target="_blank" class="contact-btn">Contact</a>
+      </div>
     </nav>
 
     <section class="section section1" id="section1">
@@ -40,7 +40,7 @@
             <h2>Tell NovaFlare what you have</h2>
             <p>Enter clothes and colors.</p>
 
-            <textarea id="userInput" name="user_input" placeholder="Example:hoodie: black, white jeans: light blue, dark blue Write one clothing item per line in this format: item: color1, color2">{{ user_input }}</textarea>
+            <textarea id="userInput" name="user_input" placeholder="Example:hoodie: black, white jeans: light blue, dark blue Write one clothing item per line in this format: item: color1, color2">{{ user_input|safe }}</textarea>
 
             <div class="rules-box">
               <p><strong>Clothes:</strong></p>

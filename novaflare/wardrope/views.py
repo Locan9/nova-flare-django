@@ -5,12 +5,9 @@ from .models import SavedSubmission
 
 
 class NovaFlareEngine:
-    """
-    NovaFlare Engine handles wardrobe input parsing, clothing combination logic,
-    and complex item color matching matrices.
-    """
+   
     
-    # 1. Class Attributes (Static rule definitions)
+    
     OUTFITS = [
         ["tshirt", "jeans"], ["tshirt", "sweatpants"], ["tshirt", "shorts"],
         ["hoodie", "jeans"], ["hoodie", "sweatpants"],
@@ -48,13 +45,12 @@ class NovaFlareEngine:
     }
 
     def __init__(self, raw_text):
-        """Initializes the instance and immediately parses the input."""
         self.raw_text = raw_text
         self.item_colors = self._parse_input()
         self.owned_items = list(self.item_colors.keys())
 
     def _parse_input(self):
-        """Helper internal method to clean up and parse text lines."""
+    
         lines = [line.strip() for line in self.raw_text.split('\n') if line.strip()]
         parsed_wardrobe = {}
         
@@ -67,23 +63,23 @@ class NovaFlareEngine:
         return parsed_wardrobe
 
     def get_recommendations(self):
-        """Processes combinations and executes the color compatibility matching matrix."""
+        
         recommendation_results = []
         recommended_outfits = []
 
-        # Find base outfits matching owned items
+       
         for outfit in self.OUTFITS:
             if all(item in self.owned_items for item in outfit):
                 recommended_outfits.append(outfit)
 
-        # Loop through matches
+       
         for outfit in recommended_outfits:
             # Handle 2-Piece Combos
             if len(outfit) == 2:
                 for c1 in self.item_colors[outfit[0]]:
                     for c2 in self.item_colors[outfit[1]]:
                         if c2 in self.COLOR_MATCH.get(c1, []):
-                            msg = f"✨ {outfit[0].title()} ({c1}) + {outfit[1].title()} ({c2})"
+                            msg = f" {outfit[0].title()} ({c1}) + {outfit[1].title()} ({c2})"
                             recommendation_results.append(msg)
 
             # Handle 3-Piece Combos
@@ -94,47 +90,36 @@ class NovaFlareEngine:
                             if (c2 in self.COLOR_MATCH.get(c1, []) and
                                 c3 in self.COLOR_MATCH.get(c1, []) and
                                 c3 in self.COLOR_MATCH.get(c2, [])):
-                                msg = f"🔥 {outfit[0].title()} ({c1}) + {outfit[1].title()} ({c2}) + {outfit[2].title()} ({c3})"
+                                msg = f" {outfit[0].title()} ({c1}) + {outfit[1].title()} ({c2}) + {outfit[2].title()} ({c3})"
                                 recommendation_results.append(msg)
 
         return recommendation_results
 
 
 def index_view(request):
-    """Simple index view: run engine on POST and render results.
+    recommendations = []
+    user_input = ""
 
-    Also saves each submission (one SavedSubmission per POST) with the generated
-    recommendations, associated with the current user if logged in or with the
-    session key otherwise.
-    """
-    user_input = request.POST.get('user_input', '') if request.method == 'POST' else ''
-    recommendations = NovaFlareEngine(user_input).get_recommendations() if user_input else []
-
-    if request.method == 'POST' and recommendations:
-        # store as HTML paragraphs so the saved page can display the same
-        # `.match-text` paragraphs as the main page. We keep raw_input too.
-        results_text = "".join([f"<p class=\"match-text\">{r}</p>" for r in recommendations])
-        try:
+    if request.method == 'POST':
+        user_input = request.POST.get('user_input', '').strip()
+        if user_input:
+            recommendations = NovaFlareEngine(user_input).get_recommendations()
+            results_string = recommendations
             SavedSubmission.objects.create(
-                user=(request.user if request.user.is_authenticated else None),
                 raw_input=user_input,
-                results=results_text,
+                results=results_string
             )
-        except Exception:
-            # don't break if save fails
-            pass
 
-    return render(request, 'index.html', {'recommendations': recommendations, 'user_input': user_input})
+    return render(request, 'index.html', {
+        'recommendations': recommendations, 
+        'user_input': user_input
+    })
 
 
 def saved_view(request):
-    """Show saved submissions for the current user or session."""
-    # If user is authenticated show their submissions; otherwise show recent submissions
-    if request.user.is_authenticated:
-        submissions = SavedSubmission.objects.filter(user=request.user)
-    else:
-        submissions = SavedSubmission.objects.all().order_by('-created_at')[:50]
-
+    submissions = SavedSubmission.objects.all().order_by('-created_at')
+    for sub in submissions:
+        sub.list_of_results = eval(sub.results)
     return render(request, 'saved.html', {'submissions': submissions})
 
 
