@@ -1,115 +1,119 @@
 ````md
-<div align="center">
+# 🚀 NovaFlare Django
 
-# ⚡ Nova Flare Django
-
-### AI-powered wardrobe & outfit recommendation platform
-
-<img src="https://img.shields.io/badge/Django-5.x-green?style=for-the-badge&logo=django" />
-<img src="https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python" />
-<img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
-<img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge" />
-
-<br>
-
-> Modern wardrobe management with AI outfit suggestions, smart color matching, and weather-based recommendations.
-
-</div>
+NovaFlare Django is a web-based wardrobe management and outfit recommendation platform that suggests clothing combinations based on your wardrobe, color compatibility, and weather conditions.
 
 ---
 
-# ✨ Features
+## 📂 Project Structure
 
-- 👕 Digital wardrobe management
-- 🎨 Smart color compatibility system
-- 🤖 AI-generated outfit suggestions
-- 🌦️ Weather-based recommendations
-- 📱 Responsive modern UI
-- 🔐 User authentication system
-- 📂 Clothing categorization
-- ⚡ Fast Django backend
-
----
-
-# 📸 Preview
-
-<p align="center">
-  <img src="assets/dashboard.png" width="800">
-</p>
-
-<p align="center">
-  <img src="assets/outfits.png" width="800">
-</p>
-
----
-
-# 🛠️ Tech Stack
-
-| Technology | Usage |
-|---|---|
-| Django | Backend Framework |
-| Python | Core Language |
-| SQLite/PostgreSQL | Database |
-| TailwindCSS | Styling |
-| HTML/CSS/JS | Frontend |
-
----
-
-# 📂 Project Structure
-
-```bash
-nova-flare-django/
-│
-├── accounts/           # Authentication system
-├── wardrobe/           # Clothing management
-├── outfits/            # Outfit generation logic
-├── static/             # CSS, JS, images
-├── templates/          # HTML templates
-├── media/              # User uploads
+```text
+novaflare/
+├── .gitignore
+├── .python-version
+├── db.sqlite3
 ├── manage.py
+├── pyproject.toml
+├── uv.lock
 │
-└── requirements.txt
+├── config/
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+│
+├── wardrobe/
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── views.py
+│   └── templates/
+│       ├── index.html
+│       └── saved.html
 ````
 
 ---
 
-# ⚙️ Installation
+## ✨ Features
+
+* Digital wardrobe management
+* Outfit recommendations
+* saves old searches 
+
+---
+
+## 🛠️ Technologies Used
+
+* Python
+* Django
+* HTML5
+* CSS3
+* JavaScript
+* Tailwind CSS
+* SQLite
+
+---
+
+## ⚙️ How It Works
+
+1. Users add clothing items
+
+2. The system:
+
+* Stores wardrobe items
+* Matches compatible colors
+* Generates outfit combinations
+* Suggests outfits based on weather
+
+---
+
+## ▶️ How to Run
+
+1. Clone the repository
 
 ```bash
-# Clone repository
 git clone https://github.com/Locan9/nova-flare-django.git
+```
 
-# Enter project
+2. Enter the project folder
+
+```bash
 cd nova-flare-django
+```
 
-# Create virtual environment
+3. Create virtual environment
+
+```bash
 python -m venv venv
+```
 
-# Activate venv
+4. Activate virtual environment
+
+```bash
 venv\Scripts\activate
+```
 
-# Install dependencies
+5. Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-# Run server
+6. Run the server
+
+```bash
 python manage.py runserver
 ```
 
 ---
 
+## 👤 Author
 
-
-# 👨‍💻 Author
-
-### Rajab
-
-* GitHub: https://github.com/Locan9
+**Rajab Alalloush**
+GitHub: https://github.com/Locan9
 
 ---
 
-<div align="center">
-
-### ⭐ Star the repo if you like the project
-
-</div>
+```
 ```
