@@ -1,120 +1,115 @@
-# 🚀 NovaFlare (Django Edition)
+````md
+<div align="center">
 
-NovaFlare is a web-based outfit recommendation platform that suggests stylish clothing combinations based on your available wardrobe and dynamic color compatibility rules. 
+# ⚡ Nova Flare Django
 
-Originally built as a static frontend app, this version has been fully migrated to a robust **Django full-stack backend** featuring object-oriented matching architecture, a built-in SQLite database engine, and authenticated user wardrobe saving.
+### AI-powered wardrobe & outfit recommendation platform
+
+<img src="https://img.shields.io/badge/Django-5.x-green?style=for-the-badge&logo=django" />
+<img src="https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python" />
+<img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+<img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge" />
+
+<br>
+
+> Modern wardrobe management with AI outfit suggestions, smart color matching, and weather-based recommendations.
+
+</div>
 
 ---
 
-## 📁 Project Structure
+# ✨ Features
 
-```text
-novaflare/
-├── .gitignore
-├── .python-version
-├── db.sqlite3
+- 👕 Digital wardrobe management
+- 🎨 Smart color compatibility system
+- 🤖 AI-generated outfit suggestions
+- 🌦️ Weather-based recommendations
+- 📱 Responsive modern UI
+- 🔐 User authentication system
+- 📂 Clothing categorization
+- ⚡ Fast Django backend
+
+---
+
+# 📸 Preview
+
+<p align="center">
+  <img src="assets/dashboard.png" width="800">
+</p>
+
+<p align="center">
+  <img src="assets/outfits.png" width="800">
+</p>
+
+---
+
+# 🛠️ Tech Stack
+
+| Technology | Usage |
+|---|---|
+| Django | Backend Framework |
+| Python | Core Language |
+| SQLite/PostgreSQL | Database |
+| TailwindCSS | Styling |
+| HTML/CSS/JS | Frontend |
+
+---
+
+# 📂 Project Structure
+
+```bash
+nova-flare-django/
+│
+├── accounts/           # Authentication system
+├── wardrobe/           # Clothing management
+├── outfits/            # Outfit generation logic
+├── static/             # CSS, JS, images
+├── templates/          # HTML templates
+├── media/              # User uploads
 ├── manage.py
-├── pyproject.toml
-├── uv.lock
-├── config/
-│   ├── __init__.py
-│   ├── asgi.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-└── wardrope/
-    ├── admin.py
-    ├── apps.py
-    ├── models.py
-    ├── templates/
-    │   ├── index.html
-    │   └── saved.html
-    └── views.py
- ---
-Markdown
-# 🚀 NovaFlare (Django Edition)
-
-NovaFlare is a web-based outfit recommendation platform that suggests stylish clothing combinations based on your available wardrobe and dynamic color compatibility rules. 
-
-Originally built as a static frontend app, this version has been fully migrated to a robust **Django full-stack backend** featuring object-oriented matching architecture, a built-in SQLite database engine, and authenticated user wardrobe saving.
+│
+└── requirements.txt
+````
 
 ---
 
-## 📂 Project Structure
+# ⚙️ Installation
 
-```text
-webdjang/
-└── novaflare/
-    ├── config/                  # Django project configuration settings & routing
-    ├── wardrope/                # Main application folder
-    │   ├── management/          # Custom admin terminal automation scripts
-    │   ├── templates/           # Clean, modular server-rendered HTML views
-    │   ├── matching_engine.py   # Object-Oriented matching engine class
-    │   ├── models.py            # SQLite database table layouts
-    │   └── views.py             # Authentication and form submission handlers
-    ├── db.sqlite3               # Core local database
-    ├── pyproject.toml           # Environment and dependency locks
-    └── manage.py                # Django execution entrypoint
-    ---
-✨ Features
-Smart Parsing Engine: Type your closet items using a clean colon-notation syntax; the backend converts it instantly into interactive data profiles.
+```bash
+# Clone repository
+git clone https://github.com/Locan9/nova-flare-django.git
 
-Encapsulated Logic Matrix: An object-oriented NovaFlareEngine processing class parses inputs, evaluates 2-to-3 piece garment templates, and compares color relationships.
+# Enter project
+cd nova-flare-django
 
-Database-Driven Rules: Outfits, clothing variations, and color matrices are stored cleanly inside database models rather than hardcoded vectors.
+# Create virtual environment
+python -m venv venv
 
-Persistent User Profiles: Built with standard Django encryption authentication. When registered users return, NovaFlare pulls their last-typed closet setup straight out of their personal UserProfile data entry automatically.
+# Activate venv
+venv\Scripts\activate
 
-Galaxy Glassmorphic Design: Retains its aesthetic neon glow, nebula backdrops, and glassmorphic navigation layouts integrated directly into server-rendered Django templates.
+# Install dependencies
+pip install -r requirements.txt
+
+# Run server
+python manage.py runserver
+```
+
 ---
 
-🛠️ Technologies Used
-Backend Framework: Django 6.0+ (Python)
 
-Package Management: uv by Astral (ultra-fast dependency workspace provider)
 
-Database: SQLite3
+# 👨‍💻 Author
 
-Frontend Foundations: HTML5, CSS3, Tailwind CSS CDN
+### Rajab
+
+* GitHub: https://github.com/Locan9
+
 ---
 
-▶️ How to Setup and Run
-1. Prerequisites
-Ensure you have Python and uv installed on your machine.
+<div align="center">
 
-2. Environment Setup
-Clone the repository, navigate into the root directory, and set up your locked dependencies using uv:
+### ⭐ Star the repo if you like the project
 
-Bash
-cd webdjang/novaflare
-uv sync
-3. Apply System Migrations
-Build your native database structures locally:
-
-Bash
-uv run python manage.py makemigrations
-uv run python manage.py migrate
-4. Feed the Rule Engine (Database Seeding)
-Run our custom data loading command to auto-populate all clothing presets, multi-garment outfits, and color vectors straight into your SQL tables:
-
-Bash
-uv run python manage.py load_data
-5. Spawn an Admin Account
-Create a terminal superuser credential to access the graphical administrative database backend panel:
-
-Bash
-uv run python manage.py createsuperuser
-6. Ignition
-Ignite the live development server:
-
-Bash
-uv run python manage.py runserver
-Open your browser and navigate to http://127.0.0.1:8000/.
----
-
-📌 Engine Constraints & Rules
-Valid Base Garments: tshirt, hoodie, casual shirt, light jacket, jeans, sweatpants, shorts, pants.
-
-Color Range: green, blue, yellow, red, orange, purple, brown, black, white, silver.
-
-Note: Custom descriptors must require light or dark prefix qualifiers (excepting uniform scales black, white, silver) to properly trigger exact dictionary compatibility validations.
+</div>
+```
