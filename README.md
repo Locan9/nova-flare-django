@@ -1,6 +1,6 @@
 # 🚀 NovaFlare Django
 
-NovaFlare Django is a web-based wardrobe management and outfit recommendation platform that suggests clothing combinations based on your wardrobe, color compatibility, and weather conditions.
+NovaFlare Django is a web-based wardrobe management and outfit recommendation platform that suggests clothing combinations based on your wardrobe, color compatibility, and weather conditions as well as saving your old combos .
 
 ---
 
